@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const contactApi = createApi({
   reducerPath: "contactApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://contact-app.mms-it.com/api/v1",
+    baseUrl: "https://contact.sankyitar.store/api/v1/",
   }),
   tagTypes: ["contact"],
   endpoints: (builder) => ({
@@ -15,7 +15,7 @@ export const contactApi = createApi({
       providesTags: ["contact"],
     }),
     getSingleContact: builder.query({
-      query: ({ token,id }) => ({
+      query: ({ token, id }) => ({
         url: `/contact/${id}`,
         headers: { authorization: `Bearer ${token}` },
       }),
@@ -39,8 +39,8 @@ export const contactApi = createApi({
       }),
       invalidatesTags: ["contact"],
     }),
-    updataContacts: builder.mutation({
-      query: ({ id,contact, token }) => ({
+    updateContacts: builder.mutation({
+      query: ({ id, contact, token }) => ({
         url: `/contact/${id}`,
         method: "PUT",
         body: contact,
@@ -54,6 +54,6 @@ export const {
   useGetContactsQuery,
   useDeleteContactsMutation,
   useCreateContactsMutation,
-  useUpdataContactsMutation,
+  useUpdateContactsMutation,
   useGetSingleContactQuery,
 } = contactApi;

@@ -2,11 +2,11 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://contact-app.mms-it.com/api/v1",
+    baseUrl: "https://contact.sankyitar.store/api/v1/",
   }),
   tagTypes: ["auth"],
-  endpoints: (buidler) => ({
-    register: buidler.mutation({
+  endpoints: (builder) => ({
+    register: builder.mutation({
       query: (user) => ({
         url: "/register",
         method: "POST",
@@ -14,7 +14,7 @@ export const authApi = createApi({
       }),
       invalidatesTags: ["auth"],
     }),
-    login: buidler.mutation({
+    login: builder.mutation({
       query: (user) => ({
         url: "/login",
         method: "POST",
@@ -22,14 +22,15 @@ export const authApi = createApi({
       }),
       invalidatesTags: ["auth"],
     }),
-    logout: buidler.mutation({
+    logout: builder.mutation({
       query: (token) => ({
         url: "/user-logout",
         method: "POST",
-        headers : {authorization : `Bearer ${token}`}
+        headers: { authorization: `Bearer ${token}` },
       }),
       invalidatesTags: ["auth"],
     }),
   }),
 });
-export const { useRegisterMutation, useLoginMutation ,useLogoutMutation} = authApi;
+export const { useRegisterMutation, useLoginMutation, useLogoutMutation } =
+  authApi;

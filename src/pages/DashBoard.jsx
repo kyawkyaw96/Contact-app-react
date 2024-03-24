@@ -1,11 +1,11 @@
 import React from "react";
-import Modal from "../componets/Modal";
-import Navbar from "../componets/Navbar";
-import Table from "../componets/Table";
+import Modal from "../components/Modal";
+import Navbar from "../components/Navbar";
+import Table from "../components/Table";
 
 const DashBoard = () => {
   return (
-    <div className=" container mx-auto">
+    <div className=' container mx-auto'>
       <Navbar />
       <Modal />
       <Table />

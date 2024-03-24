@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
-  useGetSingleContactQuery,
-  useUpdataContactsMutation,
+  useGetSingleContactQuery, useUpdateContactsMutation,
+ 
 } from "../feature/api/ContactApi";
 
 const Update = () => {
@@ -17,7 +17,7 @@ const Update = () => {
   useEffect(() => {}, []);
   const { data } = useGetSingleContactQuery({ id, token });
 
-  const [updateContact] = useUpdataContactsMutation();
+  const [updateContact] = useUpdateContactsMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
